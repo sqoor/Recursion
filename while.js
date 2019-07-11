@@ -356,6 +356,28 @@ n:        0 1 2 3 4 5  6  7
 */
 
 
+// this function here (fibon) is not working correctly
+function fibon(number) {
+    var perviousNumber = number - 1;
+    var perviousSecondNumber = number - 2;
+
+    while(perviousNumber >= 0) {
+        if(number === 0 || number === 1)
+            result = 1;
+    }
+
+    while(perviousSecondNumber >= 0) {
+        if(number === 0 || number === 1)
+            result = 1;
+    }
+
+    return perviousNumber + perviousSecondNumber;
+}
+
+
+
+
+
 /*
 2
 Write a function called mirror
@@ -368,6 +390,18 @@ mirror("school") => "loohcs"
 mirror("car") => "rac"
 mirror("maDrasa") => "asarDam"
 */
+
+function mirror(str) {
+    var reversedStr = '';
+    var length = str.length - 1;
+
+    while(length >= 0) {
+        reversedStr += str[length];
+        length--;
+    }
+
+    return reversedStr;
+}
 
 
 
@@ -386,6 +420,23 @@ mirrorCaseAlso("BaBa") => "AbAb"
 */
 
 
+function mirrorCaseAlso(str) {
+    var reversedStr = '';
+    var length = str.length - 1;
+
+    while(length >= 0) {
+        var char = str[length];
+        char = /[A-Z]/.test(char) ? char.toLowerCase() : char.toUpperCase();
+
+        reversedStr += char;
+        length--;
+    }
+
+    return reversedStr;
+}
+
+
+
 
 /*
 4
@@ -402,6 +453,24 @@ repeatChar2("school","a") => 0
 repeatChar2("School","S") => 1
 try more case by yourself
 */
+
+
+function repeatChar2(str, keyChar) {
+    var length = str.length - 1;
+    var counter = 0;
+
+    while(length >= 0) {
+        var tempChar = str[length];
+        tempChar = /[a-z]/.test(keyChar) ? tempChar.toLowerCase() : tempChar.toUpperCase();
+
+        if(tempChar === keyChar)
+            counter++;
+
+        length--;
+    }
+
+    return counter;
+}
 
 
 /*
@@ -425,3 +494,33 @@ hi 5 Now Pleas Say Hello To 1, 2, 3 and 4
 hi 6 Now Pleas Say Hello To 1, 2, 3, 4 and 5
 hi 7 Now Pleas Say Hello To 1, 2, 3, 4, 5 and 6
 */
+
+
+function HISayHelloTo(number) {
+    var counter = 1;
+    var messages = '\n';
+
+    while(counter <= number) {
+        var message = 'hi ' + counter;
+
+        if(counter > 1) {
+            var perviousPersons = 1;
+            message += ' Now Pleas Say Hello To ';
+                
+            while(perviousPersons < counter - 2) {
+                message += perviousPersons + ', ';
+                perviousPersons++;
+            }
+
+            if (counter === 1 || counter === 2)
+                message += perviousPersons;
+            else 
+                message += perviousPersons + ' and ' + (perviousPersons + 1);
+        }
+        
+        messages += message + '\n';
+        counter++;
+    }
+
+    return messages;
+}

@@ -174,7 +174,7 @@ function muti2(num1,num2) {
 }
 
 
-function muti3(num1, num2){
+function muti22(num1, num2){
     var result = 1
     while (num1 <= num2) {
         result = result * num2;
@@ -182,6 +182,7 @@ function muti3(num1, num2){
     }
  return result
 }
+
 /*
 8
 Create a function called numberBetweenUs
@@ -193,6 +194,18 @@ and return the number between them
 numberBetweenUs(2,8) => "3, 4, 5, 6, 7"
 numberBetweenUs(1,3) => "2"
 */
+
+function numberBetweenUs(num1, num2) {
+    num1++;
+    var result = num1++;
+
+    while(num1 < num2) {
+        result = result + ', ' + num1;
+        num1++;
+    }
+
+    return result;
+}
 
 
 /*
@@ -212,6 +225,23 @@ countDown(2)
 countDown(7)
 => "7, 6, 5, 4, 3, 2, 1, done"
 */
+
+function countDown(number) {
+    // debugger
+    var result = number;
+    number--
+
+    while(number > 0) { 
+      
+        result = result + ', ' + number;
+        number--;
+    }
+
+    result + ', done';
+
+    return result;
+}
+
 
 /*
 10

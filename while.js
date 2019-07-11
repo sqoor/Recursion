@@ -176,10 +176,12 @@ function muti2(num1,num2) {
 
 function muti22(num1, num2){
     var result = 1
+    
     while (num1 <= num2) {
         result = result * num2;
         num2--;  
     }
+
  return result
 }
 
@@ -227,17 +229,15 @@ countDown(7)
 */
 
 function countDown(number) {
-    // debugger
     var result = number;
-    number--
+    number--;
 
     while(number > 0) { 
-      
         result = result + ', ' + number;
         number--;
     }
 
-    result + ', done';
+    result += ', done';
 
     return result;
 }
@@ -254,6 +254,22 @@ multiplication2(2,8) => 16
 multiplication2(7,6) =>  42
 */
 
+
+function multiplication2(number1, number2) {
+    var result = 0;
+
+    while(number2 > 0) {
+        result += number1;
+        number2--;
+    }
+
+    return result;
+}
+
+
+
+
+
 /*
 11
 Write a function called mod2
@@ -264,6 +280,14 @@ mod2(5,4) => 1
 mod2(2,8) => 2
 mod2(7,4) => 3
 */
+
+function mod2(num1, num2) {
+    while(num1 >= num2) {
+        num1 = num1 - num2;
+    }
+
+    return num1;
+}
 
 
 /*
@@ -281,6 +305,21 @@ repeatChar("School","s") => 1
 try more case by yourself
 */
 
+
+function repeatChar(str, char) {
+    var length = str.length -1;
+    var count = 0;
+    char = char.toLowerCase();
+
+    while(length >= 0) {
+        if(str[length].toLowerCase() === char)
+            count++;
+
+        length--;
+    }
+
+    return count;
+}
 
 
 

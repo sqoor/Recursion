@@ -355,23 +355,21 @@ fibon(n): 1 1 2 3 5 8 13 21
 n:        0 1 2 3 4 5  6  7
 */
 
-
-// this function here (fibon) is not working correctly
 function fibon(number) {
-    var perviousNumber = number - 1;
-    var perviousSecondNumber = number - 2;
+    var previousFibon = 0;
+    var secondPreviousFibon = 0;
+    var fibon = 1;
+    var counter = 1;
 
-    while(perviousNumber >= 0) {
-        if(number === 0 || number === 1)
-            result = 1;
+    while(counter <= number) {
+        secondPreviousFibon = previousFibon;
+        previousFibon = fibon;
+        fibon = previousFibon + secondPreviousFibon;
+
+        counter++;
     }
 
-    while(perviousSecondNumber >= 0) {
-        if(number === 0 || number === 1)
-            result = 1;
-    }
-
-    return perviousNumber + perviousSecondNumber;
+    return fibon;
 }
 
 

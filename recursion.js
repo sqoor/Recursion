@@ -1,3 +1,5 @@
+console.log('Here is: Recursion');
+
 /*
 1
 Create a function called sum 
@@ -289,29 +291,14 @@ mirrorCaseAlso("THOR") => "roht"
 mirrorCaseAlso("BaBa") => "AbAb"
 */
 
-
-
-	// var char = str.slice(str.length -1);
-	// console.log('normal char ', char);
-	// console.log('is lower', /[a-z]/.test(char))
-	// console.log('is upper', /[A-Z]/.test(char))
-	// console.log	('changed char ', char);
-
-
-	// if(/[a-z]/.test(char))
-	// 	char = char.toUpperCase();
-	// else if(/[A-Z]/.test(char))
-	// 	char = char.toLowerCase();
-
 function mirrorCaseAlso(str) {
-	if(str.length <= 0){
-
+	if(str.length <= 0)
 		return '';
-	}
 
-	console.log('times');
+	var char = str.slice(str.length -1);
+	char = /[a-z]/.test(char) ? char.toUpperCase() : char.toLowerCase();
 
-	return str.slice(str.length -1) + mirrorCaseAlso(str.slice(0, str.length -1));
+	return char + mirrorCaseAlso(str.slice(0, str.length -1));
 }
 
 
@@ -332,6 +319,27 @@ repeatChar("School","s") => 1
 try more case by yourself
 */
 
+function repeatChar(str, char) {
+	var tempChar = str.slice(str.length -1).toLowerCase();
+	str = str.slice(0, str.length - 1);
+	char = char.toLowerCase();
+
+	if(str.length <= 0)
+		return  tempChar === char ? 1 : 0;
+
+	return (tempChar === char ? 1 : 0) + repeatChar(str, char);
+}
+
+
+function repeatCharWithoutVars(str, char) {
+	if(str.length <= 0)
+		return  str.slice(str.length -1).toLowerCase() === char.toLowerCase() ? 1 : 0;
+	
+	return (str.slice(str.length -1).toLowerCase() === char.toLowerCase() ? 1 : 0) + repeatCharWithoutVars(str.slice(0, str.length - 1), char.toLowerCase());
+}
+
+
+
 /*
 15
 Write a function called repeatChar2
@@ -348,89 +356,25 @@ repeatChar2("School","S") => 1
 try more case by yourself
 */
 
-/*
-1
-Create a function called sum3 
-that takes a single parameter n, 
-and return the sum of all integers up to 0 starting from n
+function repeatChar2(str, char) {
+	var tempChar = str.slice(str.length -1)
+	str = str.slice(0, str.length - 1);
 
-Ex: sum3(2); => 2 + 1 + 0 => 3 
-Ex: sum3(5); => 5 + 4 + 3 + 2 + 1 + 0 => 15
+	if(str.length <= 0)
+		return  tempChar === char ? 1 : 0;
 
-*/
-
-// function sum3(n){
-// 	if(n === 0) {
-// 		return 0
-// 	}
-
-// 	return n + sum2(n - 1)
-// }
-//  // sum3(5) => 5 + sum3(4)
-// function sum2(n){
-// 	if(n === 0) {
-// 		return 0
-// 	}
-
-// 	return n + sum3(n - 1)
-// }
-
-//  // sum3(5 - 1) => 4 +sum3(3)
-// function sum3(4) {
-// 	if(4 === 0) {
-// 		return 0
-// 	}
-
-// 	return 4 + sum3(4 - 1)
-// }
-
-
-
-
-
-// // function multi(n) 
-// // multi(5) 5 * 4 * 3 * 2 * 1 = 120
-// // multi(3) 3 * 2 * 1 = 6
-
-// function multi(n){
-//  	if(n===1)
-//  		return 1
-//  }
-
-
-
-
-//  {
-//  return n * multi(n-1)
-// }
-
-
-function name_of_function() {
-
-	console.log('emad');
-	// jsm
-}
-
-function giveFive(){
-	return 5
+	return (tempChar === char ? 1 : 0) + repeatChar2(str, char);
 }
 
 
-giveFive()
+function repeatChar2withoutVars(str, char) {
+	str = str.slice(0, str.length - 1);
 
+	if(str.length <= 0)
+		return  str.slice(str.length -1) === char ? 1 : 0;
 
-function multyTwoNumper(n,m){
-	return n*m
+	return (str.slice(str.length -1) === char ? 1 : 0) + repeatChar2withoutVars(str, char);
 }
-
-function mainos(number1,number2){
-	s=n-m
-	console.log(s)
-}
-
-
-
-
 
 
 
